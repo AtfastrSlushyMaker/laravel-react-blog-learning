@@ -50,7 +50,7 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string|max:10000',
-            'status' => 'required|string|in:draft,published,archived',
+            'status' => ['required', Rule::enum(PostStatus::class)],
             'user_id' => 'required|exists:users,id',
         ]);
         
