@@ -46,8 +46,8 @@ const Header = () => {
 
                     {/* Action Buttons */}
                     <div className="nav-actions">                        <Link to="/create" className="btn btn-primary btn-small">
-                            <i className="fas fa-pen-nib"></i> New Post
-                        </Link>
+                        <i className="fas fa-pen-nib"></i> New Post
+                    </Link>
                     </div>
                 </nav>
             </div>

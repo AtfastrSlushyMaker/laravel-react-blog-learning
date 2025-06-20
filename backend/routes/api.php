@@ -33,3 +33,14 @@ Route::put('/posts/{post}', [App\Http\Controllers\Api\PostController::class, 'up
 Route::delete('/posts/{post}', [App\Http\Controllers\Api\PostController::class, 'destroy']);
 
 //-----------------------------
+// Users
+//GET
+Route::get('/users', [App\Http\Controllers\Api\UserController::class, 'index']);
+Route::get('/users/{user}', [App\Http\Controllers\Api\UserController::class, 'show']);
+//POST
+Route::post('/users', [App\Http\Controllers\Api\UserController::class, 'store']
+);
+//PUT
+Route::put('/users/{user}', [App\Http\Controllers\Api\UserController::class, 'update']);
+//DELETE
+Route::delete('/users/{user}', [App\Http\Controllers\Api\UserController::class, 'destroy']);

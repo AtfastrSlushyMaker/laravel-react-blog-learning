@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+
     ];
 
     /**
@@ -41,5 +42,38 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'status' => 'boolean',
     ];
+
+    /**
+     * Check if user is banned
+     */
+    public function isBanned(): bool
+    {
+        return $this->status === true;
+    }
+
+    /**
+     * Ban this user (admin only)
+     */
+    public function ban(): void
+    {
+        $this->update(['status' => true]);
+    }
+
+    /**
+     * Unban this user (admin only)
+     */
+    public function unban(): void
+    {
+        $this->update(['status' => false]);
+    }
+
+    /**
+     * Get all posts for this user
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
